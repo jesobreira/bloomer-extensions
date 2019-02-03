@@ -1,12 +1,34 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "bloomer-extensions",
+  "version": "0.0.1",
+  "description": "React Bulma extensions",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.1",
+    "bloomer": "^0.6.5",
+    "bulma": "^0.7.2",
+    "bulma-accordion": "^2.0.1",
+    "bulma-badge": "^0.2.0",
+    "bulma-calendar": "^5.0.6",
+    "bulma-carousel": "^3.0.0",
+    "bulma-checkradio": "^2.1.0",
+    "bulma-divider": "^0.2.0",
+    "bulma-iconpicker": "^2.1.0",
+    "bulma-pageloader": "^2.1.0",
+    "bulma-pricingtable": "^0.2.0",
+    "bulma-quickview": "^2.0.0",
+    "bulma-slider": "^2.0.0",
+    "bulma-steps": "^2.2.1",
+    "bulma-switch": "^2.0.0",
+    "bulma-tagsinput": "^2.0.0",
+    "bulma-timeline": "^3.0.0",
+    "bulma-tooltip": "^2.0.2",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },
+  "main": "./src/components/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -16,6 +38,23 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesobreira/bloomer-extensions.git"
+  },
+  "keywords": [
+    "bulma",
+    "react",
+    "extensions",
+    "widgets",
+    "ui"
+  ],
+  "author": "Jefrey S. Santos <jefrey.santos@capitual.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jesobreira/bloomer-extensions/issues"
+  },
+  "homepage": "https://jesobreira.github.io/bloomer-extensions",
   "browserslist": [
     ">0.2%",
     "not dead",

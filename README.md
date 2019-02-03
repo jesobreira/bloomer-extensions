@@ -1,68 +1,213 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# bloomer-extensions
 
-## Available Scripts
+React components for [bulma-extensions](https://wikiki.github.io).
 
-In the project directory, you can run:
+**THIS IS A WORK-IN-PROGRESS**
 
-### `npm start`
+# Installing
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Remember that this is a work-in-progress and therefore future changes are impossible. We do follow [Semantic Versioning](https://semver.org), which allows you to identify whether a change is breaking or not. But bugs are also possible, therefore, using this library in production is not recommended, yet, and shall be done under your risk. PRs are always welcome.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```
+npm i bloomer-extensions
+```
 
-### `npm test`
+# TO-DO
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [ ] **Proper testing**
+- [ ] Documentation and examples
+- [ ] Carousel
+- [x] CheckRadio
+- [x] Divider
+- [ ] IconPicker
+- [x] PageLoader
+- [ ] PricingTable
+- [x] QuickView
+- [ ] Ribbon
+- [x] Slider
+- [x] Steps
+- [ ] TagsInput
+- [x] Timeline
+- [x] ToolTip
 
-### `npm run build`
+# Usage
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As stated above, proper documentation is yet in the TO-DO list, and using this library in production is not recommended yet. But if you want to try it yourself or even help with PRs, here are a few examples:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+import {  Divider,
+          PageLoader,
+          ToolTip,
+          Badge,
+          CheckRadio,
+          Slider,
+          CheckSwitch,
+          QuickView, QuickViewHeader, QuickViewBody, QuickViewBlock, QuickViewFooter,
+          Steps, StepItem, StepMarker, StepDetails, StepTitle,
+          Timeline, TimelineHeader, TimelineItem, TimelineMarker, TimelineContent
+  } from 'bloomer-extensions'
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Divider
 
-### `npm run eject`
+```
+<Divider />
+<Divider isVertical />
+<Divider content="HI" />
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## PageLoader
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+<PageLoader isActive>
+	Test
+</PageLoader>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## ToolTip
+```
+<ToolTip text="Hey">Test</ToolTip>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Badge
+```
+<Badge text="8">
+	<button class="button">Test</button>
+</Badge>
+```
 
-## Learn More
+## CheckRadio
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+<CheckRadio id="test" checked={this.state.checkradioChecked} onClick={() => this.setState({ checkradioChecked: !this.state.checkradioChecked })}>Click me</Checkradio>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<CheckRadio type="radio" name="myGroup" id="opt1" value="1" checked>Option 1</Checkradio>
 
-### Code Splitting
+<CheckRadio type="radio" name="myGroup" id="opt2" value="2">Option 2</Checkradio>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```
 
-### Analyzing the Bundle Size
+## Slider
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+<Slider value={this.state.sliderValue} onChange={(e) => this.setState({ sliderValue: e.target.value })} />
+<p>{ this.state.sliderValue || 50 }</p>
+```
 
-### Making a Progressive Web App
+## CheckSwitch
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+<CheckSwitch checked={this.state.checkswitchChecked} onClick={() => this.setState({ checkswitchChecked: !this.state.checkswitchChecked })}>
+	Check me
+</CheckSwitch>
+```
 
-### Advanced Configuration
+## QuickView
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+<QuickView isActive={this.state.quickview}>
+	<QuickViewHeader>
+	  Title
+	  <Delete onClick={() => this.setState({ quickview: false })} />
+	</QuickViewHeader>
 
-### Deployment
+	<QuickViewBody>
+	  <QuickViewBlock>
+	    Hello, world
+	  </QuickViewBlock>
+	</QuickViewBody>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+	<QuickViewFooter>
+	  Footer
+	</QuickViewFooter>
+</QuickView>
+```
 
-### `npm run build` fails to minify
+## Steps
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+  <Steps isSize='large'>
+    <StepItem isCompleted isColor='info'>
+      <StepMarker>
+        ✓
+      </StepMarker>
+      <StepDetails>
+        <StepTitle>Step 1</StepTitle>
+        <p>Steps' first step</p>
+      </StepDetails>
+    </StepItem>
+
+    <StepItem isActive>
+      <StepMarker>
+        ✓
+      </StepMarker>
+      <StepDetails>
+        <StepTitle>Step 2</StepTitle>
+        <p>Steps' second step</p>
+      </StepDetails>
+    </StepItem>
+
+    <StepItem>
+      <StepMarker>
+        ✓
+      </StepMarker>
+      <StepDetails>
+        <StepTitle>Step 3</StepTitle>
+        <p>Steps' third step</p>
+      </StepDetails>
+    </StepItem>
+
+    <StepItem>
+      <StepMarker>
+        ✓
+      </StepMarker>
+      <StepDetails>
+        <StepTitle>Step 4</StepTitle>
+        <p>Steps' final step</p>
+      </StepDetails>
+    </StepItem>
+
+  </Steps>
+```
+
+## Timeline
+
+```
+  <Timeline>
+
+    <TimelineHeader>
+      <Tag isSize='medium' isColor='primary'>Start</Tag>
+    </TimelineHeader>
+
+    <TimelineItem>
+      <TimelineMarker />
+      <TimelineContent>
+        <p class="heading">January 2016</p>
+        <p>Timeline content</p>
+      </TimelineContent>
+    </TimelineItem>
+
+    <TimelineItem>
+      <TimelineMarker isColor='info' isSize='medium' />
+      <TimelineContent>
+        <p class="heading">January 2017</p>
+        <p>Timeline content</p>
+      </TimelineContent>
+    </TimelineItem>
+
+    <TimelineItem>
+      <TimelineMarker isColor='info' isSize='medium' isIcon>
+        ✓
+       </TimelineMarker>
+      <TimelineContent>
+        <p class="heading">January 2017</p>
+        <p>Timeline content</p>
+      </TimelineContent>
+    </TimelineItem>
+
+  </Timeline>
+```
+
+# License
+
+MIT.
